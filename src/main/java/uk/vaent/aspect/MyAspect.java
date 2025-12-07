@@ -12,16 +12,9 @@ import java.util.Arrays;
 @Component
 public class MyAspect {
 
-    // this doesn't work
     @Before("@annotation(sqlQuery)")
     public void queryAdvice(SqlQuery sqlQuery) {
         System.out.println("Executing query: " + sqlQuery.value());
-    }
-
-    // this works but isn't what I need
-    @Before("@annotation(getMapping)")
-    public void getMappingAdvice(GetMapping getMapping) {
-        System.out.println("GetMapping method called: " + Arrays.toString(getMapping.value()));
     }
 
 }

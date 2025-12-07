@@ -1,20 +1,19 @@
 package uk.vaent.service;
 
-import org.jdbi.v3.core.Jdbi;
 import org.springframework.stereotype.Service;
 import uk.vaent.dao.MyDAO;
 
 @Service
 public class MyService {
 
-    private final Jdbi jdbi;
+    private final MyDAO myDAO;
 
-    public MyService(Jdbi jdbi) {
-        this.jdbi = jdbi;
+    public MyService(MyDAO myDAO) {
+        this.myDAO = myDAO;
     }
 
     public Long getCount() {
-        return jdbi.onDemand(MyDAO.class).getCount();
+        return myDAO.getCount();
     }
 
 }

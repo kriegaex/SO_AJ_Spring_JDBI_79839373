@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import uk.vaent.dao.MyDAO;
 
 import javax.sql.DataSource;
 
@@ -24,6 +25,11 @@ public class MyConfig {
         Jdbi jdbi = Jdbi.create(dataSource);
         jdbi.installPlugin(new SqlObjectPlugin());
         return jdbi;
+    }
+
+    @Bean
+    public MyDAO myDAO (Jdbi jdbi) {
+        return jdbi.onDemand(MyDAO.class);
     }
 
 }
