@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<aspectj>
+
+  <weaver options="-showWeaveInfo">
+    <include within="uk.vaent..*"/>
+    <!-- Cosmetics: avoid warnings for CGLIB proxies in config class -->
+    <exclude within="uk.vaent.config..*"/>
+  </weaver>
+
+  <aspects>
+    <aspect name="uk.vaent.aspect.MyAspect"/>
+
+    <!-- Spring aspects, copied from spring-aspects-5.3.31.jar. (De-)activate as needed -->
+    <aspect name="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect"/>
+    <aspect name="org.springframework.scheduling.aspectj.AnnotationAsyncExecutionAspect"/>
+    <aspect name="org.springframework.transaction.aspectj.AnnotationTransactionAspect"/>
+    <aspect name="org.springframework.transaction.aspectj.JtaAnnotationTransactionAspect"/>
+    <aspect name="org.springframework.cache.aspectj.AnnotationCacheAspect"/>
+    <aspect name="org.springframework.cache.aspectj.JCacheCacheAspect"/>
+  </aspects>
+
+</aspectj>

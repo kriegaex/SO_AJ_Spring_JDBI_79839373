@@ -18,6 +18,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Override transitive Spring dependency, Java 17 requires at least AspectJ 1.9.8 -->
+        <aspectj.version>1.9.25</aspectj.version>
     </properties>
 
     <dependencies>
